@@ -141,6 +141,11 @@ DirectoryIndex index.php
   # view on the live site.
   #RewriteRule ^jobs(/?.*)$            /about-us/jobs$1 [R=301,L]
 
+  # The old support address will be redirected to the new support
+  # address.
+  RewriteCond %{HTTP_HOST} ^network\.acquia\.com$ [NC]
+  RewriteRule ^support/?$  	https://network.acquia.com/network/dashboard/tickets [R=301,L]
+
   # Rewrite current-style URLs of the form 'x' to the form 'index.php?q=x'.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
